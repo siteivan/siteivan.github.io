@@ -1,0 +1,196 @@
+/* Reset e Configurações de Acessibilidade */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fontes legíveis e alto contraste */
+body {
+    font-family: Arial, Helvetica, sans-serif; /* Fontes sem serifa são mais legíveis */
+    line-height: 1.6; /* Espaçamento entre linhas maior para facilitar leitura */
+    color: #000000; /* Texto preto */
+    background-color: #FFFFFF; /* Fundo branco para máximo contraste */
+    font-size: 18px; /* Tamanho de fonte maior */
+    display: block;
+    padding: 20px 0; /* Adiciona espaçamento superior e inferior */
+    text-align: center; /* Centraliza o texto, se necessário */
+}
+
+/* Estrutura com foco em acessibilidade */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left; /* Ajusta o texto para a esquerda dentro do contêiner */
+}
+
+/* Cabeçalhos com hierarquia clara */
+h1 {
+    font-size: 2.5rem; /* Tamanho grande */
+    color: #333333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #444444;
+    margin-bottom: 15px;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+/* Links com foco em acessibilidade */
+a {
+    color: #0000EE; /* Azul tradicional de link */
+    text-decoration: underline; /* Sempre sublinhado */
+    transition: all 0.3s ease;
+}
+
+a:hover, a:focus {
+    color: #FF0000; /* Vermelho no hover para destacar */
+    outline: 3px solid #000; /* Contorno preto quando em foco */
+}
+
+/* Botões acessíveis */
+.btn, button {
+    background-color: #0000EE; /* Cor de fundo azul */
+    color: #FFFFFF; /* Texto branco */
+    padding: 15px 25px;
+    border: 2px solid #000000; /* Borda preta */
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn:hover, button:hover {
+    background-color: #FF0000;
+    transform: scale(1.05); /* Feedback visual */
+}
+
+/* Formulários acessíveis */
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 2px solid #000000;
+    font-size: 18px;
+}
+
+/* Navegação com foco em acessibilidade */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.main-nav ul li {
+    margin: 10px;
+}
+
+.main-nav ul li a {
+    color: #000000;
+    text-decoration: none;
+    padding: 10px;
+    display: inline-block;
+    border: 2px solid transparent;
+}
+
+.main-nav ul li a:focus, .main-nav ul li a:hover {
+    border-color: #0000EE;
+    outline: 3px solid #000;
+}
+
+/* Carrossel acessível */
+.carousel {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.carousel img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Alt text descritivo */
+img[alt] {
+    position: relative;
+}
+
+img[alt]::after {
+    content: attr(alt);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    padding: 5px;
+    font-size: 14px;
+}
+
+/* Rodapé com informações claras */
+.main-footer {
+    background-color: #000000;
+    color: #FFFFFF;
+    padding: 30px 0;
+}
+
+/* Responsividade com acessibilidade */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 16px; /* Reduz levemente em telas menores */
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+/* Recursos de alto contraste */
+@media screen and (prefers-contrast: high) {
+    body {
+        background-color: #000000;
+        color: #FFFFFF;
+    }
+
+    a {
+        color: #FFFF00; /* Amarelo brilhante */
+    }
+}
+
+/* Suporte para leitores de tela */
+[aria-hidden="true"] {
+    display: none;
+}
+
+/* Pula para conteúdo principal */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000000;
+    color: white;
+    padding: 10px;
+    z-index: 100;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Indicadores de foco */
+*:focus {
+    outline: 3px solid #FF0000;
+    outline-offset: 2px;
+}
